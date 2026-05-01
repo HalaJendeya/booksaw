@@ -14,7 +14,7 @@
                         <ul class="menu-list">
                             <li class="menu-item has-sub {{ request()->routeIs('home') ? 'active' : '' }}">
                                 <a href="{{ route('home') }}" class="nav-link home-dropdown-toggle">
-                                    Home <span class="home-menu-arrow">▾</span>
+                                    Home <span class="home-menu-arrow"></span>
                                 </a>
                                 <ul>
                                     <li><a href="{{ route('home') }}#featured-books">Featured</a></li>
@@ -27,11 +27,13 @@
                                 </ul>
                             </li>
 
-                            <li class="menu-item {{ request()->routeIs('shop') || request()->routeIs('books.show') ? 'active' : '' }}">
+                            <li
+                                class="menu-item {{ request()->routeIs('shop') || request()->routeIs('books.show') ? 'active' : '' }}">
                                 <a href="{{ route('shop') }}" class="nav-link">Shop</a>
                             </li>
 
-                            <li class="menu-item {{ request()->routeIs('articles.index') || request()->routeIs('articles.show') ? 'active' : '' }}">
+                            <li
+                                class="menu-item {{ request()->routeIs('articles.index') || request()->routeIs('articles.show') ? 'active' : '' }}">
                                 <a href="{{ route('articles.index') }}" class="nav-link">Articles</a>
                             </li>
 
@@ -39,9 +41,23 @@
                                 <a href="{{ route('contact') }}" class="nav-link">Contact</a>
                             </li>
 
+                            <li class="menu-item {{ request()->routeIs('wishlist.index') ? 'active' : '' }}">
+    <a href="{{ route('wishlist.index') }}" class="nav-link nav-count-link">
+        Wishlist
+        <span class="nav-count-badge">
+            {{ count(session('wishlist', [])) }}
+        </span>
+    </a>
+</li>
+
                             <li class="menu-item {{ request()->routeIs('cart.index') ? 'active' : '' }}">
-                                <a href="{{ route('cart.index') }}" class="nav-link">Cart</a>
-                            </li>
+    <a href="{{ route('cart.index') }}" class="nav-link nav-count-link">
+        Cart
+        <span class="nav-count-badge">
+            {{ \App\Models\CartItem::where('session_id', session()->getId())->sum('quantity') }}
+        </span>
+    </a>
+</li>
 
                             <li class="menu-item {{ request()->routeIs('account') ? 'active' : '' }}">
                                 <a href="{{ route('account') }}" class="nav-link">Account</a>
@@ -53,11 +69,13 @@
                 <div class="header-actions">
                     <div class="action-menu">
                         <div class="search-bar">
-                            <a href="#" class="search-button search-toggle header-action-link" data-selector="#header-wrap">
+                            <a href="#" class="search-button search-toggle header-action-link"
+                                data-selector="#header-wrap">
                                 <i class="icon icon-search"></i>
                             </a>
                             <form role="search" method="get" class="search-box">
-                                <input class="search-field text search-input" placeholder="Search" type="search" name="search">
+                                <input class="search-field text search-input" placeholder="Search" type="search"
+                                    name="search">
                             </form>
                         </div>
                     </div>

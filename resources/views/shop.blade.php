@@ -53,11 +53,18 @@
                                                 class="product-item">
                                         </a>
                                         <form action="{{ route('cart.add', $book->id) }}" method="POST">
-    @csrf
-    <button type="submit" class="add-to-cart" data-product-tile="add-to-cart">
-        Add to Cart
-    </button>
-</form>
+                                            @csrf
+                                            <button type="submit" class="add-to-cart" data-product-tile="add-to-cart">
+                                                Add to Cart
+                                            </button>
+                                        </form>
+                                        <form action="{{ route('wishlist.add', $book->id) }}" method="POST"
+                                            class="wishlist-form">
+                                            @csrf
+                                            <button type="submit" class="wishlist-btn" title="Add to Wishlist">
+                                                <i class="icon icon-heart">♥</i>
+                                            </button>
+                                        </form>
                                     </figure>
                                     <figcaption>
                                         <h3>

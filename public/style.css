@@ -2295,56 +2295,134 @@ span.prev-price {
   }
 }
 
-/*----- Footer Section
---------------------------------------------------------------*/
-footer#footer {
-  padding-bottom: 80px;
-  margin-top: 100px;
-  margin-bottom: 60px;
-  border-bottom: 1px solid #E0E0E0;
+/* =========================
+   Footer
+========================= */
+
+#footer {
+  background: #f9f7f3;
+  padding: 80px 0 30px;
+  border-top: 1px solid #ece7df;
 }
 
-#footer .footer-item {
-  margin-right: 100px;
-}
-
-#footer .footer-item img.footer-logo {
-  margin-bottom: 40px;
-}
-
-#footer .footer-item p {
-  width: 80%;
-}
-
+#footer .footer-item,
 #footer .footer-menu {
-  margin-right: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
-#footer .footer-menu ul {
-  list-style: none;
+#footer .company-brand {
+  max-width: 420px;
 }
 
-#footer .footer-menu ul a {
-  color: var(--dark-text-color);
+#footer .footer-logo {
+  max-width: 240px;
+  height: auto;
+  display: block;
+  margin-bottom: 20px;
+}
+
+#footer .footer-description {
+  color: #666;
+  font-size: 17px;
+  line-height: 1.9;
+  margin-bottom: 22px;
+}
+
+#footer .footer-social {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+#footer .footer-social a {
+  color: #111;
+  font-size: 18px;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-#footer .footer-menu:last-child {
-  margin-right: 0;
+#footer .footer-social a:hover {
+  color: #c5a992;
 }
 
-.footer-menu h5 {
-  font-size: 1.5em;
-  font-weight: 500;
-  margin-top: 0;
-  margin-bottom: 40px;
-  text-transform: capitalize;
+#footer .footer-menu h5 {
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 22px;
+  color: #111;
 }
 
-@media screen and (max-width: 768px) {
-  #footer .footer-item {
-    margin-right: 0;
+#footer .footer-menu .menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#footer .footer-menu .menu-item {
+  margin-bottom: 12px;
+}
+
+#footer .footer-menu .menu-item a {
+  color: #111;
+  text-decoration: none;
+  font-size: 17px;
+  line-height: 1.8;
+  transition: color 0.3s ease;
+}
+
+#footer .footer-menu .menu-item a:hover,
+#footer .footer-menu .menu-item.active a {
+  color: #c5a992;
+}
+
+#footer .footer-bottom {
+  margin-top: 35px;
+  padding-top: 20px;
+  border-top: 1px solid #e5ddd3;
+  text-align: center;
+}
+
+#footer .footer-bottom p {
+  margin: 0;
+  color: #777;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media screen and (max-width: 991px) {
+  #footer {
+    padding: 60px 0 25px;
+  }
+
+  #footer .footer-menu h5 {
+    font-size: 26px;
+  }
+
+  #footer .company-brand {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #footer {
+    text-align: center;
+  }
+
+  #footer .footer-social {
+    justify-content: center;
+  }
+
+  #footer .company-brand {
+    margin: 0 auto;
+  }
+
+  #footer .footer-logo {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -3220,4 +3298,89 @@ div.book-details-back .slick-arrow i.icon {
 
 .hamburger {
   display: none;
+}
+
+/* =========================
+    Wishlist Page
+========================= */
+.wishlist-page {
+  min-height: 500px;
+}
+
+.wishlist-empty {
+  padding: 60px 20px;
+  background: #f9f7f3;
+  border: 1px solid #ece7df;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+.wishlist-empty p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.wishlist-form {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+}
+
+.wishlist-btn {
+  background: #fff;
+  border: 1px solid #e5ddd3;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.wishlist-btn i {
+  font-size: 16px;
+  color: #444;
+}
+
+.wishlist-btn:hover {
+  background: #c5a992;
+  border-color: #c5a992;
+}
+
+.wishlist-btn:hover i {
+  color: #fff;
+}
+
+.custom-success-alert {
+  background: #f9f7f3;
+  border: 1px solid #d8cfc3;
+  color: #74642f;
+  padding: 14px 20px;
+  border-radius: 6px;
+  margin-bottom: 0;
+}
+
+.nav-count-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-count-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: #c5a992;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 600;
 }

@@ -19,6 +19,13 @@
 
     @include('partials.navbar')
 
+    @if(session('success'))
+    <div class="container mt-3">
+        <div class="alert alert-success text-center custom-success-alert">
+            {{ session('success') }}
+        </div>
+    </div>
+@endif
     @yield('content')
 
     @include('partials.footer')
