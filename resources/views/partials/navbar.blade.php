@@ -20,8 +20,8 @@
                             <i class="icon icon-user"></i><span>Account</span>
                         </a>
 
-                        <a href="#" class="cart for-buy">
-                            <i class="icon icon-clipboard"></i><span>Cart:(0 $)</span>
+                        <a href="{{ route('cart.index') }}" class="cart for-buy">
+                            <i class="icon icon-clipboard"></i><span>Cart</span>
                         </a>
 
                         <div class="action-menu">
@@ -64,11 +64,9 @@
                                     <ul>
                                         <li class="active"><a href="{{ url('/') }}">Home</a></li>
                                         <li><a href="#">About</a></li>
-                                        <li><a href="#">Styles</a></li>
                                         <li><a href="#">Blog</a></li>
                                         <li><a href="#">Post Single</a></li>
                                         <li><a href="#">Our Store</a></li>
-                                        <li><a href="#">Product Single</a></li>
                                         <li><a href="#">Contact</a></li>
                                         <li><a href="#">Thank You</a></li>
                                     </ul>

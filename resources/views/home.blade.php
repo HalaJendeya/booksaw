@@ -99,9 +99,12 @@
                                                 <img src="{{ asset('images/' . $book->image) }}" alt="{{ $book->title }}"
                                                     class="product-item">
                                             </a>
-                                            <button type="button" class="add-to-cart" data-product-tile="add-to-cart">
-                                                Add to Cart
-                                            </button>
+                                            <form action="{{ route('cart.add', $book->id) }}" method="POST">
+                                                @csrf
+                                                <button type="submit" class="add-to-cart" data-product-tile="add-to-cart">
+                                                    Add to Cart
+                                                </button>
+                                            </form>
                                         </figure>
                                         <figcaption>
                                             <h3>
@@ -210,10 +213,13 @@
                                                     <img src="{{ asset('images/' . $book->image) }}"
                                                         alt="{{ $book->title }}" class="product-item">
                                                 </a>
-                                                <button type="button" class="add-to-cart"
-                                                    data-product-tile="add-to-cart">
-                                                    Add to Cart
-                                                </button>
+                                                <form action="{{ route('cart.add', $book->id) }}" method="POST">
+                                                    @csrf
+                                                    <button type="submit" class="add-to-cart"
+                                                        data-product-tile="add-to-cart">
+                                                        Add to Cart
+                                                    </button>
+                                                </form>
                                             </figure>
                                             <figcaption>
                                                 <h3>
@@ -238,8 +244,13 @@
                                                     <img src="{{ asset('images/' . $book->image) }}"
                                                         alt="{{ $book->title }}" class="product-item">
                                                 </a>
-                                                <button type="button" class="add-to-cart"
-                                                    data-product-tile="add-to-cart">Add to Cart</button>
+                                                <form action="{{ route('cart.add', $book->id) }}" method="POST">
+                                                    @csrf
+                                                    <button type="submit" class="add-to-cart"
+                                                        data-product-tile="add-to-cart">
+                                                        Add to Cart
+                                                    </button>
+                                                </form>
                                             </figure>
                                             <figcaption>
                                                 <h3>
@@ -265,8 +276,13 @@
                                                     <img src="{{ asset('images/' . $book->image) }}"
                                                         alt="{{ $book->title }}" class="product-item">
                                                 </a>
-                                                <button type="button" class="add-to-cart"
-                                                    data-product-tile="add-to-cart">Add to Cart</button>
+                                                <form action="{{ route('cart.add', $book->id) }}" method="POST">
+                                                    @csrf
+                                                    <button type="submit" class="add-to-cart"
+                                                        data-product-tile="add-to-cart">
+                                                        Add to Cart
+                                                    </button>
+                                                </form>
                                             </figure>
                                             <figcaption>
                                                 <h3>
@@ -292,8 +308,13 @@
                                                     <img src="{{ asset('images/' . $book->image) }}"
                                                         alt="{{ $book->title }}" class="product-item">
                                                 </a>
-                                                <button type="button" class="add-to-cart"
-                                                    data-product-tile="add-to-cart">Add to Cart</button>
+                                                <form action="{{ route('cart.add', $book->id) }}" method="POST">
+                                                    @csrf
+                                                    <button type="submit" class="add-to-cart"
+                                                        data-product-tile="add-to-cart">
+                                                        Add to Cart
+                                                    </button>
+                                                </form>
                                             </figure>
                                             <figcaption>
                                                 <h3>
@@ -319,8 +340,13 @@
                                                     <img src="{{ asset('images/' . $book->image) }}"
                                                         alt="{{ $book->title }}" class="product-item">
                                                 </a>
-                                                <button type="button" class="add-to-cart"
-                                                    data-product-tile="add-to-cart">Add to Cart</button>
+                                                <form action="{{ route('cart.add', $book->id) }}" method="POST">
+                                                    @csrf
+                                                    <button type="submit" class="add-to-cart"
+                                                        data-product-tile="add-to-cart">
+                                                        Add to Cart
+                                                    </button>
+                                                </form>
                                             </figure>
                                             <figcaption>
                                                 <h3>
@@ -346,8 +372,13 @@
                                                     <img src="{{ asset('images/' . $book->image) }}"
                                                         alt="{{ $book->title }}" class="product-item">
                                                 </a>
-                                                <button type="button" class="add-to-cart"
-                                                    data-product-tile="add-to-cart">Add to Cart</button>
+                                                <form action="{{ route('cart.add', $book->id) }}" method="POST">
+                                                    @csrf
+                                                    <button type="submit" class="add-to-cart"
+                                                        data-product-tile="add-to-cart">
+                                                        Add to Cart
+                                                    </button>
+                                                </form>
                                             </figure>
                                             <figcaption>
                                                 <h3>
@@ -405,8 +436,12 @@
                                             <img src="{{ asset('images/' . $book->image) }}" alt="{{ $book->title }}"
                                                 class="product-item">
                                         </a>
-                                        <button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
-                                            Cart</button>
+                                        <form action="{{ route('cart.add', $book->id) }}" method="POST">
+                                            @csrf
+                                            <button type="submit" class="add-to-cart" data-product-tile="add-to-cart">
+                                                Add to Cart
+                                            </button>
+                                        </form>
                                     </figure>
                                     <figcaption>
                                         <h3>

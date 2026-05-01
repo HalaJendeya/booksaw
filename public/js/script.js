@@ -50,13 +50,13 @@
     }
   }
 
-  $(window).scroll(function() {    
+  $(window).scroll(function() {
     initScrollNav();
-  }); 
+  });
 
   $(document).ready(function(){
     initScrollNav();
-    
+
     Chocolat(document.querySelectorAll('.image-link'), {
         imageSize: 'contain',
         loop: true,
@@ -87,7 +87,7 @@
         dots: true,
         prevArrow: $('.prev'),
         nextArrow: $('.next'),
-    }); 
+    });
 
     $('.product-grid').slick({
         slidesToShow: 4,
