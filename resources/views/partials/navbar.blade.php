@@ -47,7 +47,7 @@
 
                 <div class="col-md-2">
                     <div class="main-logo">
-                        <a href="{{ url('/') }}">
+                        <a href="{{ route('home') }}">
                             <img src="{{ asset('images/main-logo.png') }}" alt="logo">
                         </a>
                     </div>
@@ -57,26 +57,51 @@
                     <nav id="navbar">
                         <div class="main-menu stellarnav">
                             <ul class="menu-list">
-                                <li class="menu-item active"><a href="{{ url('/') }}">Home</a></li>
-                                <li class="menu-item"><a href="{{ route('shop') }}" class="nav-link">Shop</a></li>
+                                <li class="menu-item {{ request()->routeIs('home') ? 'active' : '' }}">
+                                    <a href="{{ route('home') }}">Home</a>
+                                </li>
+
+                                <li class="menu-item {{ request()->routeIs('shop') || request()->routeIs('books.show') ? 'active' : '' }}">
+                                    <a href="{{ route('shop') }}" class="nav-link">Shop</a>
+                                </li>
+
                                 <li class="menu-item has-sub">
                                     <a href="#pages" class="nav-link">Pages</a>
                                     <ul>
-                                        <li class="active"><a href="{{ url('/') }}">Home</a></li>
-                                        <li><a href="#">About</a></li>
-                                        <li><a href="#">Blog</a></li>
-                                        <li><a href="#">Post Single</a></li>
-                                        <li><a href="#">Our Store</a></li>
-                                        <li><a href="#">Contact</a></li>
-                                        <li><a href="#">Thank You</a></li>
+                                        <li class="{{ request()->routeIs('home') ? 'active' : '' }}">
+                                            <a href="{{ route('home') }}">Home</a>
+                                        </li>
+                                        <li class="{{ request()->routeIs('shop') || request()->routeIs('books.show') ? 'active' : '' }}">
+                                            <a href="{{ route('shop') }}">Shop</a>
+                                        </li>
+                                        <li class="{{ request()->routeIs('articles.index') || request()->routeIs('articles.show') ? 'active' : '' }}">
+                                            <a href="{{ route('articles.index') }}">Articles</a>
+                                        </li>
+                                        <li class="{{ request()->routeIs('cart.index') ? 'active' : '' }}">
+                                            <a href="{{ route('cart.index') }}">Cart</a>
+                                        </li>
                                     </ul>
                                 </li>
-                                <li class="menu-item"><a href="#featured-books" class="nav-link">Featured</a></li>
-                                <li class="menu-item"><a href="#popular-books" class="nav-link">Popular</a></li>
-                                <li class="menu-item"><a href="#special-offer" class="nav-link">Offer</a></li>
-                                <li class="menu-item"><a href="#latest-blog" class="nav-link">Articles</a></li>
-                                <li class="menu-item"><a href="#download-app" class="nav-link">Download App</a></li>
 
+                                <li class="menu-item {{ request()->routeIs('home') && request()->fullUrlIs(route('home') . '#featured-books') ? 'active' : '' }}">
+                                    <a href="{{ route('home') }}#featured-books" class="nav-link">Featured</a>
+                                </li>
+
+                                <li class="menu-item">
+                                    <a href="{{ route('home') }}#popular-books" class="nav-link">Popular</a>
+                                </li>
+
+                                <li class="menu-item">
+                                    <a href="{{ route('home') }}#special-offer" class="nav-link">Offer</a>
+                                </li>
+
+                                <li class="menu-item {{ request()->routeIs('articles.index') || request()->routeIs('articles.show') ? 'active' : '' }}">
+                                    <a href="{{ route('articles.index') }}" class="nav-link">Articles</a>
+                                </li>
+
+                                <li class="menu-item">
+                                    <a href="{{ route('home') }}#download-app" class="nav-link">Download App</a>
+                                </li>
                             </ul>
 
                             <div class="hamburger">

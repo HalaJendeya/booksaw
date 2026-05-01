@@ -490,134 +490,40 @@
     <section id="latest-blog" class="py-5 my-5">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+    @foreach($articles as $article)
+        <div class="col-md-4">
+            <article class="column" data-aos="fade-up">
+                <figure>
+                    <a href="{{ route('articles.show', $article->slug) }}" class="image-hvr-effect">
+                        <img src="{{ asset('images/' . $article->image) }}" alt="{{ $article->title }}" class="post-image">
+                    </a>
+                </figure>
 
-                    <div class="section-header align-center">
-                        <div class="title">
-                            <span>Read our articles</span>
-                        </div>
-                        <h2 class="section-title">Latest Articles</h2>
+                <div class="post-item">
+                    <div class="meta-date">
+                        {{ $article->published_at?->format('M d, Y') }}
                     </div>
+                    <h3>
+                        <a href="{{ route('articles.show', $article->slug) }}">
+                            {{ $article->title }}
+                        </a>
+                    </h3>
 
-                    <div class="row">
-
-                        <div class="col-md-4">
-
-                            <article class="column" data-aos="fade-up">
-
-                                <figure>
-                                    <a href="#" class="image-hvr-effect">
-                                        <img src="{{ asset('images/post-img1.jpg') }}" alt="post"
-                                            class="post-image">
-                                    </a>
-                                </figure>
-
-                                <div class="post-item">
-                                    <div class="meta-date">Mar 30, 2021</div>
-                                    <h3><a href="#">Reading books always makes the moments happy</a></h3>
-
-                                    <div class="links-element">
-                                        <div class="categories">inspiration</div>
-                                        <div class="social-links">
-                                            <ul>
-                                                <li>
-                                                    <a href="#"><i class="icon icon-facebook"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="icon icon-twitter"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="icon icon-behance-square"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div><!--links-element-->
-
-                                </div>
-                            </article>
-
-                        </div>
-                        <div class="col-md-4">
-
-                            <article class="column" data-aos="fade-up" data-aos-delay="200">
-                                <figure>
-                                    <a href="#" class="image-hvr-effect">
-                                        <img src="{{ asset('images/post-img2.jpg') }}" alt="post"
-                                            class="post-image">
-                                    </a>
-                                </figure>
-                                <div class="post-item">
-                                    <div class="meta-date">Mar 29, 2021</div>
-                                    <h3><a href="#">Reading books always makes the moments happy</a></h3>
-
-                                    <div class="links-element">
-                                        <div class="categories">inspiration</div>
-                                        <div class="social-links">
-                                            <ul>
-                                                <li>
-                                                    <a href="#"><i class="icon icon-facebook"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="icon icon-twitter"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="icon icon-behance-square"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div><!--links-element-->
-
-                                </div>
-                            </article>
-
-                        </div>
-                        <div class="col-md-4">
-
-                            <article class="column" data-aos="fade-up" data-aos-delay="400">
-                                <figure>
-                                    <a href="#" class="image-hvr-effect">
-                                        <img src="{{ asset('images/post-img3.jpg') }}" alt="post"
-                                            class="post-image">
-                                    </a>
-                                </figure>
-                                <div class="post-item">
-                                    <div class="meta-date">Feb 27, 2021</div>
-                                    <h3><a href="#">Reading books always makes the moments happy</a></h3>
-
-                                    <div class="links-element">
-                                        <div class="categories">inspiration</div>
-                                        <div class="social-links">
-                                            <ul>
-                                                <li>
-                                                    <a href="#"><i class="icon icon-facebook"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="icon icon-twitter"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="icon icon-behance-square"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div><!--links-element-->
-
-                                </div>
-                            </article>
-
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-
-                        <div class="btn-wrap align-center">
-                            <a href="#" class="btn btn-outline-accent btn-accent-arrow" tabindex="0">Read All
-                                Articles<i class="icon icon-ns-arrow-right"></i></a>
+                    <div class="links-element">
+                        <div class="categories">{{ $article->category }}</div>
+                        <div class="social-links">
+                            <ul>
+                                <li><a href="#"><i class="icon icon-facebook"></i></a></li>
+                                <li><a href="#"><i class="icon icon-twitter"></i></a></li>
+                                <li><a href="#"><i class="icon icon-behance-square"></i></a></li>
+                            </ul>
                         </div>
                     </div>
-
                 </div>
-            </div>
+            </article>
+        </div>
+    @endforeach
+</div>
         </div>
     </section>
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\Book;
 use App\Models\Category;
 
@@ -64,6 +65,8 @@ class HomeController extends Controller
             ->take(5)
             ->get();
 
+        $articles = Article::latest('published_at')->take(3)->get();
+
         return view('home', compact(
             'sliderBooks',
             'featuredBooks',
@@ -73,7 +76,8 @@ class HomeController extends Controller
             'romanticBooks',
             'adventureBooks',
             'fictionalBooks',
-            'offerBooks'
+            'offerBooks',
+'articles'
         ));
     }
 }
