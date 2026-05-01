@@ -2379,8 +2379,10 @@ footer#footer {
 
 .product-style button.add-to-cart {
   position: absolute;
-  background: #000;
+  background: #c5a992;
   color: #fff;
+  border: 1px solid #c5a992;
+  border-radius: 12px;
   width: 100%;
   margin: 0;
   text-transform: uppercase;
@@ -2930,4 +2932,79 @@ footer#footer {
     width: 100%;
     max-width: 100%;
   }
+}
+
+div.book-details-back button.slick-arrow {
+  background: transparent;
+  border: 1px solid #c5a992;
+  padding: initial;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  top: 30%;
+  z-index: 5;
+  cursor: pointer;
+}
+
+div.book-details-back button.slick-arrow:hover {
+  border: 1px solid #74642F;
+  background-color: #E5E3DA;
+}
+
+div.book-details-back button.prev.slick-arrow {
+  left: 110px;
+}
+
+/* div.book-details-back button.next.slick-arrow {
+  right: 110px;
+} */
+
+div.book-details-back .slick-arrow i.icon {
+  color: #8C8C8C;
+}
+
+.book-details-cart-btn {
+  margin-top: 25px;
+}
+
+.book-details-cart-btn form {
+  margin: 0;
+}
+
+.book-details-cart-btn {
+  margin-top: 25px;
+}
+
+.book-details-cart-btn form {
+  margin: 0;
+}
+
+.book-details-cart-btn .add-to-cart {
+  position: static !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-width: 180px;
+  height: 52px;
+  padding: 0 28px;
+  background: #C5A992;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.book-details-cart-btn .add-to-cart:hover {
+  background: #74642f;
+  color: #fff;
 }

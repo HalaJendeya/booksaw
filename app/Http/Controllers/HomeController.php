@@ -9,6 +9,11 @@ class HomeController extends Controller
 {
     public function index()
     {
+        $sliderBooks = Book::where('is_featured', true)
+    ->orderBy('id')
+    ->take(2)
+    ->get();
+
         $featuredBooks = Book::where('is_featured', true)
             ->orderBy('title')
             ->take(4)
@@ -60,6 +65,7 @@ class HomeController extends Controller
             ->get();
 
         return view('home', compact(
+            'sliderBooks',
             'featuredBooks',
             'popularBooks',
             'businessBooks',
