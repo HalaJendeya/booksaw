@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
+Route::get('/account', function () {
+    return view('account');
+})->name('account');
+// Route::view('/contact', 'contact')->name('contact');
+
 Route::get('/shop', [BookController::class, 'index'])->name('shop');
 Route::get('/books/{slug}', [BookController::class, 'show'])->name('books.show');
 

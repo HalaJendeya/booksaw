@@ -126,48 +126,47 @@
     </section>
 
     {{-- best selling --}}
-    <section id="best-selling" class="leaf-pattern-overlay">
-        <div class="corner-pattern-overlay"></div>
-        <div class="container">
-            <div class="row justify-content-center">
-
-                <div class="col-md-8">
-
-                    <div class="row">
-
-                        <div class="col-md-6">
-                            <figure class="products-thumb">
-                                <img src="{{ asset('images/single-image.jpg') }}" alt="book" class="single-image">
-                            </figure>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="product-entry">
-                                <h2 class="section-title divider">Best Selling Book</h2>
-
-                                <div class="products-content">
-                                    <div class="author-name">By Timbur Hood</div>
-                                    <h3 class="item-title">Birds gonna be happy</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu feugiat amet,
-                                        libero ipsum enim pharetra hac.</p>
-                                    <div class="item-price">$ 45.00</div>
-                                    <div class="btn-wrap">
-                                        <a href="#" class="btn-accent-arrow">shop it now <i
-                                                class="icon icon-ns-arrow-right"></i></a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-                    <!-- / row -->
-
-                </div>
-
-            </div>
+    <section id="best-seller" class="best-seller padding-large">
+    <div class="container">
+        <div class="section-header align-center">
+            <h2 class="section-title">Best Sellers</h2>
         </div>
-    </section>
+
+        <div class="row">
+            @forelse($bestSellers as $book)
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-item">
+                        <figure class="product-style">
+                            <a href="{{ route('books.show', $book->slug) }}">
+                                <img src="{{ asset('images/' . $book->image) }}" alt="{{ $book->title }}" class="product-item">
+                            </a>
+                            <form action="{{ route('cart.add', $book->id) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="add-to-cart" data-product-tile="add-to-cart">
+                                    Add to Cart
+                                </button>
+                            </form>
+                        </figure>
+
+                        <figcaption>
+                            <h3>
+                                <a href="{{ route('books.show', $book->slug) }}">
+                                    {{ $book->title }}
+                                </a>
+                            </h3>
+                            <span>{{ $book->author }}</span>
+                            <div class="item-price">$ {{ number_format($book->price, 2) }}</div>
+                        </figcaption>
+                    </div>
+                </div>
+            @empty
+                <div class="col-12 text-center">
+                    <p>No best seller books available right now.</p>
+                </div>
+            @endforelse
+        </div>
+    </div>
+</section>
 
     {{-- popular books --}}
     <section id="popular-books" class="bookshelf py-5 my-5">
@@ -392,16 +391,32 @@
     </section>
 
     {{-- quotation --}}
-    <section id="quotation" class="align-center pb-5 mb-5">
-        <div class="inner-content">
-            <h2 class="section-title divider">Quote of the day</h2>
-            <blockquote data-aos="fade-up">
-                <q>“The more that you read, the more things you will know. The more that you learn, the more places
-                    you’ll go.”</q>
-                <div class="author-name">Dr. Seuss</div>
-            </blockquote>
+    <section id="quote-of-the-day" class="quotation padding-large">
+    <div class="inner-content">
+        <div class="container">
+            <div class="row">
+                <div class="section-header align-center">
+                    <h2 class="section-title">Quote of the Day</h2>
+                </div>
+                <div class="quotation-content text-center">
+                    @if($quote)
+                        <blockquote>
+                            <q>{{ $quote->quote }}</q>
+                            @if($quote->author)
+                                <div class="author-name">— {{ $quote->author }}</div>
+                            @endif
+                        </blockquote>
+                    @else
+                        <blockquote>
+                            <q>A room without books is like a body without a soul.</q>
+                            <div class="author-name">— Cicero</div>
+                        </blockquote>
+                    @endif
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
     {{-- special offer --}}
     <section id="special-offer" class="bookshelf pb-5 mb-5">
@@ -487,45 +502,53 @@
     </section>
 
     {{-- latest blog --}}
-    <section id="latest-blog" class="py-5 my-5">
-        <div class="container">
-            <div class="row">
-    @foreach($articles as $article)
-        <div class="col-md-4">
-            <article class="column" data-aos="fade-up">
-                <figure>
-                    <a href="{{ route('articles.show', $article->slug) }}" class="image-hvr-effect">
-                        <img src="{{ asset('images/' . $article->image) }}" alt="{{ $article->title }}" class="post-image">
-                    </a>
-                </figure>
+<section id="latest-blog" class="py-5 my-5">
+    <div class="container">
 
-                <div class="post-item">
-                    <div class="meta-date">
-                        {{ $article->published_at?->format('M d, Y') }}
-                    </div>
-                    <h3>
-                        <a href="{{ route('articles.show', $article->slug) }}">
-                            {{ $article->title }}
-                        </a>
-                    </h3>
+        <div class="section-header align-center">
+            <div class="title">
+                <span>Read our latest updates</span>
+            </div>
+            <h2 class="section-title">Latest Articles</h2>
+        </div>
 
-                    <div class="links-element">
-                        <div class="categories">{{ $article->category }}</div>
-                        <div class="social-links">
-                            <ul>
-                                <li><a href="#"><i class="icon icon-facebook"></i></a></li>
-                                <li><a href="#"><i class="icon icon-twitter"></i></a></li>
-                                <li><a href="#"><i class="icon icon-behance-square"></i></a></li>
-                            </ul>
+        <div class="row">
+            @foreach($articles as $article)
+                <div class="col-md-4">
+                    <article class="column" data-aos="fade-up">
+                        <figure>
+                            <a href="{{ route('articles.show', $article->slug) }}" class="image-hvr-effect">
+                                <img src="{{ asset('images/' . $article->image) }}" alt="{{ $article->title }}" class="post-image">
+                            </a>
+                        </figure>
+
+                        <div class="post-item">
+                            <div class="meta-date">
+                                {{ $article->published_at?->format('M d, Y') }}
+                            </div>
+                            <h3>
+                                <a href="{{ route('articles.show', $article->slug) }}">
+                                    {{ $article->title }}
+                                </a>
+                            </h3>
+
+                            {{-- <div class="links-element">
+                                <div class="categories">{{ $article->category }}</div>
+                                <div class="social-links">
+                                    <ul>
+                                        <li><a href="#"><i class="icon icon-facebook"></i></a></li>
+                                        <li><a href="#"><i class="icon icon-twitter"></i></a></li>
+                                        <li><a href="#"><i class="icon icon-behance-square"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div> --}}
                         </div>
-                    </div>
+                    </article>
                 </div>
-            </article>
+            @endforeach
         </div>
-    @endforeach
-</div>
-        </div>
-    </section>
+    </div>
+</section>
 
     {{-- download app --}}
     <section id="download-app" class="leaf-pattern-overlay">

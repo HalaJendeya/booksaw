@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CategoryBookSeeder::class,
             ArticleSeeder::class,
+            QuoteSeeder::class,
         ]);
     }
 }
