@@ -67,19 +67,21 @@
                 </nav>
 
                 <div class="header-actions">
-                    <div class="action-menu">
-                        <div class="search-bar">
-                            <a href="#" class="search-button search-toggle header-action-link"
-                                data-selector="#header-wrap">
-                                <i class="icon icon-search"></i>
-                            </a>
-                            <form role="search" method="get" class="search-box">
-                                <input class="search-field text search-input" placeholder="Search" type="search"
-                                    name="search">
-                            </form>
-                        </div>
-                    </div>
-                </div>
+    <div class="search-bar">
+        <form action="{{ route('search') }}" method="GET" class="search-box always-open-search">
+            <input
+                type="search"
+                name="q"
+                class="search-input"
+                placeholder="Search for books or articles..."
+                value="{{ request('q') }}"
+            >
+            <button type="submit" class="search-submit-btn">
+                Search
+            </button>
+        </form>
+    </div>
+</div>
 
                 <div class="hamburger">
                     <span class="bar"></span>

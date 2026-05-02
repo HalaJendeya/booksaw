@@ -12,7 +12,13 @@
                 <h2 class="section-title">Shopping Cart</h2>
             </div>
 
-            @if ($cartItems->count())
+            @if(session('success'))
+                <div class="cart-alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            @if($cartItems->count())
                 <div class="cart-table-wrap">
                     <table class="cart-table">
                         <thead>
@@ -25,7 +31,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($cartItems as $item)
+                            @foreach($cartItems as $item)
                                 <tr>
                                     <td>
                                         <div class="cart-book-info">
@@ -56,8 +62,8 @@
                                                 @csrf
                                                 @method('PATCH')
 
-                                                <input type="text" name="quantity" value="{{ $item->quantity }}"
-                                                    inputmode="numeric" class="cart-quantity-input">
+                                                <input type="text" name="quantity" value="{{ $item->quantity }}" inputmode="numeric"
+                                                    class="cart-quantity-input">
 
                                                 <button type="submit" class="cart-update-btn">Update</button>
                                             </form>
@@ -71,8 +77,7 @@
                                     <td class="text-center">
                                         <div class="cart-remove-cell">
                                             <form action="{{ route('cart.remove', $item->id) }}" method="POST"
-                                                onsubmit="return confirm('Remove this item from cart?');"
-                                                class="cart-remove-form">
+                                                onsubmit="return confirm('Remove this item from cart?');" class="cart-remove-form">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="cart-remove-btn"
@@ -90,7 +95,7 @@
                     <div class="cart-summary-card">
                         <h4>Cart Total</h4>
                         <div class="cart-summary-total">${{ number_format($total, 2) }}</div>
-                        <a href="javascript:void(0)" class="btn-accent-arrow">
+                        <a href="{{ route('checkout') }}" class="btn-accent-arrow">
                             Proceed to Checkout <i class="icon icon-ns-arrow-right"></i>
                         </a>
                     </div>

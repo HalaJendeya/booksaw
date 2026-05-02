@@ -3384,3 +3384,150 @@ div.book-details-back .slick-arrow i.icon {
   line-height: 1;
   font-weight: 600;
 }
+
+.always-open-search {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  position: static !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  min-width: auto !important;
+}
+
+.always-open-search .search-input {
+  display: block !important;
+  width: 220px;
+  height: 42px;
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #333;
+  outline: none;
+}
+
+.search-submit-btn {
+  height: 42px;
+  padding: 0 14px;
+  border: 1px solid #c5a992;
+  background: #c5a992;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  position: relative;
+  z-index: 1000;
+}
+
+.always-open-search {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+  position: static !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  min-width: auto !important;
+}
+
+.always-open-search .search-input {
+  width: 240px !important;
+  height: 42px !important;
+  padding: 10px 14px !important;
+  border: 1px solid #ddd !important;
+  background: #fff !important;
+  color: #333 !important;
+  outline: none !important;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+.search-submit-btn {
+  height: 42px;
+  padding: 0 16px;
+  border: 1px solid #c5a992;
+  background: #c5a992;
+  color: #fff;
+  cursor: pointer;
+}
+
+.search-submit-btn:hover {
+  background: #111;
+  border-color: #111;
+}
+
+.account-page {
+  min-height: 500px;
+}
+
+.account-box {
+  margin-top: 30px;
+  padding: 35px;
+  background: #f9f7f3;
+  border: 1px solid #ece7df;
+}
+
+.account-info {
+  margin-bottom: 30px;
+}
+
+.account-info h3 {
+  margin-bottom: 10px;
+  font-size: 28px;
+}
+
+.account-info p {
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 16px;
+}
+
+.account-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.account-card {
+  display: block;
+  padding: 22px;
+  background: #fff;
+  border: 1px solid #e8e1d9;
+  text-decoration: none;
+  color: #111;
+  transition: all 0.3s ease;
+}
+
+.account-card:hover {
+  border-color: #c5a992;
+  transform: translateY(-2px);
+}
+
+.account-card h4 {
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.account-card p {
+  margin: 0;
+  color: #666;
+  font-size: 15px;
+}
+
+@media screen and (max-width: 767px) {
+  .account-links {
+    grid-template-columns: 1fr;
+  }
+}
