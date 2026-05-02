@@ -3388,7 +3388,7 @@ div.book-details-back .slick-arrow i.icon {
 .always-open-search {
   display: flex !important;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   position: static !important;
   background: transparent !important;
   border: none !important;
@@ -3399,7 +3399,7 @@ div.book-details-back .slick-arrow i.icon {
 
 .always-open-search .search-input {
   display: block !important;
-  width: 220px;
+  width: 18px;
   height: 42px;
   padding: 10px 14px;
   border: 1px solid #ddd;
@@ -3441,7 +3441,7 @@ div.book-details-back .slick-arrow i.icon {
 }
 
 .always-open-search .search-input {
-  width: 240px !important;
+  width: 160px !important;
   height: 42px !important;
   padding: 10px 14px !important;
   border: 1px solid #ddd !important;
