@@ -5,12 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\CartItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
     public function index()
     {
         $sessionId = session()->getId();
+
+        if(Auth::check()) {
+            $sessionId = Auth::id();
+        }
 
         $cartItems = CartItem::with('book')
             ->where('session_id', $sessionId)
@@ -26,6 +31,10 @@ class CartController extends Controller
     public function add(Book $book)
     {
         $sessionId = session()->getId();
+
+        if(Auth::check()) {
+            $sessionId = Auth::id();
+        }
 
         $cartItem = CartItem::where('session_id', $sessionId)
             ->where('book_id', $book->id)

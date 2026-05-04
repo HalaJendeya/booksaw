@@ -3168,11 +3168,11 @@ div.book-details-back .slick-arrow i.icon {
 .home-dropdown-toggle {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
 }
 
 .home-menu-arrow {
-  font-size: 11px;
+  font-size: 9px;
   line-height: 1;
   transform: translateY(1px);
 }
